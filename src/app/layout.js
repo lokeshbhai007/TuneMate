@@ -6,7 +6,9 @@ export const metadata = {
   title: 'TuneMate',
   description: 'Advanced AI-powered English learning and correction tool',
   icons: {
-    icon: '/logo.png', // Favicon path from public folder
+    icon: '/logo.svg',
+    shortcut: '/logo.svg',
+    apple: '/logo.svg',
   },
 }
 
