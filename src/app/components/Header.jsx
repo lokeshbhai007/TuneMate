@@ -124,18 +124,18 @@ const TypingAnimation = () => {
 export default function Header() {
   return (
     <header className="bg-terminal-card border-b border-terminal-border">
-      <div className="container mx-auto px-4 py-4 lg:py-6">
+      <div className="container mx-auto px-4 py-2 lg:py-2">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2 lg:space-x-4">
             <div className="flex items-center space-x-2">
-              <TuneMateLogo className="h-6 w-6 lg:h-8 lg:w-8 text-terminal-green" />
+              <TuneMateLogo className="h-10 w-10 lg:h-12 lg:w-12 text-terminal-green" />
               <h1 className="text-lg lg:text-2xl font-bold text-terminal-green min-w-[120px] lg:min-w-[160px]">
                 <TypingAnimation />
               </h1>
             </div>
           </div>
                         
-          <div className="flex items-center space-x-2 lg:space-x-4">
+          <div className="flex items-center space-x-4 lg:space-x-4">
             <div className="hidden sm:flex items-center space-x-2 text-terminal-muted">
               <Brain className="h-3 w-3 lg:h-4 lg:w-4" />
               <span className="text-xs lg:text-sm">AI-Powered</span>
