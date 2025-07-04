@@ -30,7 +30,7 @@ PRIMARY MESSAGE TO REPLY TO:
 ${contextText ? `CONTEXT INFORMATION:
 "${contextText}"` : ''}
 
-Please generate 3-4 different reply options that are:
+Please generate 3-4 different reply options that are shuold be in english:
 1. Appropriate and contextually relevant
 2. Varied in tone (professional, friendly, casual, etc.)
 3. Clear and concise

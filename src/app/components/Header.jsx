@@ -77,10 +77,6 @@ export default function Header() {
                 TuneMate
               </h1>
             </div>
-            <div className="hidden sm:flex items-center space-x-1 text-terminal-muted">
-              <span>{'>'}</span>
-              <span className="text-terminal-blue text-sm lg:text-base">ACTIVE</span>
-            </div>
           </div>
                      
           <div className="flex items-center space-x-2 lg:space-x-4">
