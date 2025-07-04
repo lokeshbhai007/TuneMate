@@ -1,46 +1,218 @@
-/* // File: src/app/globals.css */
+/* // src/app/globals.css */
 @import "tailwindcss";
 
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
 
-/* * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-} */
+/* Custom CSS Variables for Terminal Theme */
+:root {
+  --color-terminal-bg: #1a1b3e;
+  --color-terminal-card: #2d3748;
+  --color-terminal-border: #4a5568;
+  --color-terminal-green: #00ff88;
+  --color-terminal-blue: #00bfff;
+  --color-terminal-purple: #8b5cf6;
+  --color-terminal-text: #e2e8f0;
+  --color-terminal-muted: #94a3b8;
+  --color-terminal-yellow: #fbbf24;
+  --color-terminal-red: #ef4444;
+  
+  --font-family-mono: Monaco, Consolas, monospace;
+}
+
+/* Light Theme Variables */
+:root.light {
+  --color-terminal-bg: #f8fafc;
+  --color-terminal-card: #ffffff;
+  --color-terminal-border: #e2e8f0;
+  --color-terminal-green: #10b981;
+  --color-terminal-blue: #3b82f6;
+  --color-terminal-purple: #8b5cf6;
+  --color-terminal-text: #0f172a;
+  --color-terminal-muted: #475569;
+  --color-terminal-yellow: #f59e0b;
+  --color-terminal-red: #ef4444;
+}
+
 
 body {
-  font-family: 'JetBrains Mono', monospace;
-  background-color: #000000;
-  color: #00ff00;
-  overflow-x: hidden;
+  background: linear-gradient(135deg, var(--color-terminal-bg) 0%, var(--color-terminal-card) 100%);
+  min-height: 100vh;
+  font-family: var(--font-family-mono);
+  color: var(--color-terminal-text);
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
+.terminal-glow {
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
 }
 
-::-webkit-scrollbar-track {
-  background: #1a1a1a;
+.light .terminal-glow {
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.15);
 }
 
-::-webkit-scrollbar-thumb {
-  background: #00ff00;
-  border-radius: 4px;
+.card-glow {
+  box-shadow: 0 4px 20px rgba(0, 191, 255, 0.1);
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #00cc00;
+.light .card-glow {
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.08);
 }
 
-/* Additional terminal effects */
-@keyframes blink {
-  0%, 50% { opacity: 1; }
-  51%, 100% { opacity: 0; }
+.bg-gradient-terminal {
+  background: linear-gradient(135deg, var(--color-terminal-bg) 0%, var(--color-terminal-card) 100%);
 }
 
-.cursor::after {
-  content: '_';
-  animation: blink 1s infinite;
+.hover-glow:hover {
+  box-shadow: 0 0 15px rgba(0, 255, 136, 0.3);
 }
+
+.light .hover-glow:hover {
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
+}
+
+.button-glow {
+  transition: all 0.3s ease;
+}
+
+.button-glow:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 191, 255, 0.2);
+}
+
+.light .button-glow:hover {
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.15);
+}
+
+/* Mobile Responsive Scrollbar */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-terminal-border) transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-terminal-border);
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--color-terminal-muted);
+}
+
+/* Responsive Text Sizes */
+@media (max-width: 640px) {
+  .text-responsive-lg {
+    font-size: 1.5rem;
+  }
+  
+  .text-responsive-base {
+    font-size: 0.875rem;
+  }
+}
+
+/* Custom Terminal Color Classes */
+.bg-terminal-bg { background-color: var(--color-terminal-bg); }
+.bg-terminal-card { background-color: var(--color-terminal-card); }
+.bg-terminal-border { background-color: var(--color-terminal-border); }
+.bg-terminal-green { background-color: var(--color-terminal-green); }
+.bg-terminal-blue { background-color: var(--color-terminal-blue); }
+.bg-terminal-purple { background-color: var(--color-terminal-purple); }
+.bg-terminal-text { background-color: var(--color-terminal-text); }
+.bg-terminal-muted { background-color: var(--color-terminal-muted); }
+.bg-terminal-yellow { background-color: var(--color-terminal-yellow); }
+.bg-terminal-red { background-color: var(--color-terminal-red); }
+
+.text-terminal-bg { color: var(--color-terminal-bg); }
+.text-terminal-card { color: var(--color-terminal-card); }
+.text-terminal-border { color: var(--color-terminal-border); }
+.text-terminal-green { color: var(--color-terminal-green); }
+.text-terminal-blue { color: var(--color-terminal-blue); }
+.text-terminal-purple { color: var(--color-terminal-purple); }
+.text-terminal-text { color: var(--color-terminal-text); }
+.text-terminal-muted { color: var(--color-terminal-muted); }
+.text-terminal-yellow { color: var(--color-terminal-yellow); }
+.text-terminal-red { color: var(--color-terminal-red); }
+
+.border-terminal-bg { border-color: var(--color-terminal-bg); }
+.border-terminal-card { border-color: var(--color-terminal-card); }
+.border-terminal-border { border-color: var(--color-terminal-border); }
+.border-terminal-green { border-color: var(--color-terminal-green); }
+.border-terminal-blue { border-color: var(--color-terminal-blue); }
+.border-terminal-purple { border-color: var(--color-terminal-purple); }
+.border-terminal-text { border-color: var(--color-terminal-text); }
+.border-terminal-muted { border-color: var(--color-terminal-muted); }
+.border-terminal-yellow { border-color: var(--color-terminal-yellow); }
+.border-terminal-red { border-color: var(--color-terminal-red); }
+
+/* Enhanced Opacity variants for better light theme readability */
+.bg-terminal-green\/20 { background-color: rgba(0, 255, 136, 0.2); }
+.bg-terminal-blue\/20 { background-color: rgba(0, 191, 255, 0.2); }
+.bg-terminal-purple\/20 { background-color: rgba(139, 92, 246, 0.2); }
+.bg-terminal-yellow\/20 { background-color: rgba(251, 191, 36, 0.2); }
+.bg-terminal-red\/20 { background-color: rgba(239, 68, 68, 0.2); }
+
+.light .bg-terminal-green\/20 { background-color: rgba(16, 185, 129, 0.1); }
+.light .bg-terminal-blue\/20 { background-color: rgba(59, 130, 246, 0.1); }
+.light .bg-terminal-purple\/20 { background-color: rgba(139, 92, 246, 0.1); }
+.light .bg-terminal-yellow\/20 { background-color: rgba(245, 158, 11, 0.1); }
+.light .bg-terminal-red\/20 { background-color: rgba(239, 68, 68, 0.1); }
+
+.border-terminal-green\/50 { border-color: rgba(0, 255, 136, 0.5); }
+.border-terminal-blue\/50 { border-color: rgba(0, 191, 255, 0.5); }
+.border-terminal-purple\/50 { border-color: rgba(139, 92, 246, 0.5); }
+.border-terminal-yellow\/50 { border-color: rgba(251, 191, 36, 0.5); }
+.border-terminal-red\/50 { border-color: rgba(239, 68, 68, 0.5); }
+
+.light .border-terminal-green\/50 { border-color: rgba(16, 185, 129, 0.3); }
+.light .border-terminal-blue\/50 { border-color: rgba(59, 130, 246, 0.3); }
+.light .border-terminal-purple\/50 { border-color: rgba(139, 92, 246, 0.3); }
+.light .border-terminal-yellow\/50 { border-color: rgba(245, 158, 11, 0.3); }
+.light .border-terminal-red\/50 { border-color: rgba(239, 68, 68, 0.3); }
+
+/* Enhanced text opacity classes for better light theme visibility */
+.text-terminal-green\/80 { color: rgba(0, 255, 136, 0.8); }
+.text-terminal-blue\/80 { color: rgba(0, 191, 255, 0.8); }
+.text-terminal-red\/80 { color: rgba(239, 68, 68, 0.8); }
+.text-terminal-purple\/80 { color: rgba(139, 92, 246, 0.8); }
+.text-terminal-yellow\/80 { color: rgba(251, 191, 36, 0.8); }
+
+.light .text-terminal-green\/80 { color: rgba(16, 185, 129, 0.9); }
+.light .text-terminal-blue\/80 { color: rgba(59, 130, 246, 0.9); }
+.light .text-terminal-red\/80 { color: rgba(239, 68, 68, 0.9); }
+.light .text-terminal-purple\/80 { color: rgba(139, 92, 246, 0.9); }
+.light .text-terminal-yellow\/80 { color: rgba(245, 158, 11, 0.9); }
+
+/* Additional text opacity variants for light theme */
+.text-terminal-text\/90 { color: rgba(226, 232, 240, 0.9); }
+.text-terminal-text\/80 { color: rgba(226, 232, 240, 0.8); }
+.text-terminal-text\/70 { color: rgba(226, 232, 240, 0.7); }
+.text-terminal-text\/60 { color: rgba(226, 232, 240, 0.6); }
+
+.light .text-terminal-text\/90 { color: rgba(15, 23, 42, 0.95); }
+.light .text-terminal-text\/80 { color: rgba(15, 23, 42, 0.85); }
+.light .text-terminal-text\/70 { color: rgba(15, 23, 42, 0.75); }
+.light .text-terminal-text\/60 { color: rgba(15, 23, 42, 0.65); }
+
+.text-terminal-muted\/90 { color: rgba(148, 163, 184, 0.9); }
+.text-terminal-muted\/80 { color: rgba(148, 163, 184, 0.8); }
+.text-terminal-muted\/70 { color: rgba(148, 163, 184, 0.7); }
+.text-terminal-muted\/60 { color: rgba(148, 163, 184, 0.6); }
+
+.light .text-terminal-muted\/90 { color: rgba(71, 85, 105, 0.9); }
+.light .text-terminal-muted\/80 { color: rgba(71, 85, 105, 0.8); }
+.light .text-terminal-muted\/70 { color: rgba(71, 85, 105, 0.7); }
+.light .text-terminal-muted\/60 { color: rgba(71, 85, 105, 0.6); }
+
+.font-mono { font-family: var(--font-family-mono); }
+
+/* Additional light theme specific styles */
+.light .bg-black\/30 { background-color: rgba(0, 0, 0, 0.05); }
+.light .bg-black\/20 { background-color: rgba(0, 0, 0, 0.03); }
+.light .hover\:bg-white\/10:hover { background-color: rgba(0, 0, 0, 0.05); }

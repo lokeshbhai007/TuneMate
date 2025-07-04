@@ -74,62 +74,6 @@ const actionPrompts = {
     
     3. **Friendly-Polite:**
     [friendly but polite version]
-  `,
-  
-  formal: (text) => `
-    You are TuneMate, helping with professional communication. Make this text more formal: "${text}"
-    
-    Provide exactly 3 versions in this format:
-    1. **Professional & Business-Appropriate:**
-    [professional version]
-    
-    2. **Very Formal & Academic:**
-    [academic version]
-    
-    3. **Balanced Formal-Friendly:**
-    [balanced version]
-  `,
-  
-  casual: (text) => `
-    You are TuneMate, helping with friendly communication. Make this text more casual: "${text}"
-    
-    Provide exactly 3 versions in this format:
-    1. **Friendly & Relaxed:**
-    [friendly version]
-    
-    2. **Very Casual & Conversational:**
-    [casual version]
-    
-    3. **Warm & Approachable:**
-    [warm version]
-  `,
-  
-  expand: (text) => `
-    You are TuneMate, helping add detail and context. Expand this text: "${text}"
-    
-    Provide exactly 3 versions in this format:
-    1. **Detailed with Context:**
-    [detailed version]
-    
-    2. **With Examples & Explanations:**
-    [version with examples]
-    
-    3. **With Emotional Warmth:**
-    [emotionally engaging version]
-  `,
-  
-  summarize: (text) => `
-    You are TuneMate, helping make things concise. Summarize this text: "${text}"
-    
-    Provide exactly 3 versions in this format:
-    1. **Clear & Concise Summary:**
-    [concise summary]
-    
-    2. **Brief Summary (One Sentence):**
-    [one sentence summary]
-    
-    3. **Key Points in Simple Language:**
-    [simple key points]
   `
 }
 
@@ -262,11 +206,7 @@ function getEncouragementMessage(action) {
     reply: "Great! Pick the tone that feels right for your situation.",
     grammar: "You're improving! These corrections will help you communicate more clearly.",
     simplify: "Perfect! Simpler language often works better.",
-    polite: "Nice work! Polite communication opens doors.",
-    formal: "Excellent! Professional tone shows respect and competence.",
-    casual: "Awesome! Friendly communication builds connections.",
-    expand: "Well done! Adding detail makes your message more engaging.",
-    summarize: "Great job! Clear, concise messages are powerful."
+    polite: "Nice work! Polite communication opens doors."
   }
   
   return messages[action] || "You're doing great! Keep practicing."
@@ -299,6 +239,9 @@ export async function POST(request) {
     const result = await model.generateContent(prompt)
     const response = await result.response
     const rawText = response.text()
+
+    console.log(rawText);
+    
     
     // Process the response into structured format
     const structuredResponse = await processAIResponse(rawText, action)
@@ -392,6 +335,7 @@ export async function GET() {
         multipleOptions: true,
         enhancedStorage: true
       },
+      availableActions: Object.keys(actionPrompts),
       database: {
         connected: dbHealth.connected,
         status: dbHealth.success ? 'healthy' : 'unhealthy'
