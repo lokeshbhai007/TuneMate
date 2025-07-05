@@ -36,7 +36,7 @@ export default function InputForm({ inputText, setInputText, contextText, setCon
           <textarea
             value={contextText}
             onChange={(e) => setContextText(e.target.value)}
-            placeholder="Add context or background information only for 'Reply Generate'..."
+            placeholder="Add background information only for 'Reply Generate'..."
             className="w-full bg-black/30 border border-terminal-border rounded-md pl-10 lg:pl-12 pr-4 py-3 text-sm lg:text-base text-terminal-text placeholder-terminal-muted focus:outline-none focus:ring-2 focus:ring-terminal-blue/50 focus:border-terminal-blue resize-none"
             rows="2"
           />
