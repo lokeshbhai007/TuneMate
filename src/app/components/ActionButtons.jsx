@@ -109,7 +109,7 @@ export default function ActionButtons({
           <span className="text-terminal-red group-hover:text-terminal-red/80 transition-colors duration-200 font-mono">
             {">"}
           </span>
-          <span className="text-terminal-red group-hover:text-terminal-red/80 transition-colors duration-200 font-mono text-sm lg:text-base font-semibold tracking-wider">
+          <span className="text-terminal-red underline group-hover:text-terminal-red/80 transition-colors duration-200 font-mono text-sm lg:text-base font-semibold tracking-wider">
             CLEAR ALL
           </span>
           <div className="w-1.5 h-1.5 bg-terminal-red rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>

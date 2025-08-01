@@ -256,7 +256,7 @@ export default function HistorySection({ history, onClearHistory, onDeleteItem }
         
         <button
           onClick={onClearHistory}
-          className="flex items-center space-x-2 text-terminal-red hover:text-terminal-red/80 transition-colors"
+          className="flex items-center space-x-2 text-terminal-red hover:text-terminal-red/80 transition-colors "
         >
           <RotateCcw className="h-4 w-4" />
           <span className="text-sm">Clear All</span>
